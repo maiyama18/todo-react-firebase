@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { fetchTodosThunk, toggleTodoThunk } from '../store/data'
-import { bindActionCreators } from '../../../../../../Library/Caches/typescript/3.1/node_modules/redux'
+import { registerTodosListenerThunk, toggleTodoThunk } from '../store/data'
+import { bindActionCreators } from 'redux'
 
 class TodoList extends Component {
   componentDidMount() {
-    this.props.fetchTodosThunk()
+    this.props.registerTodosListenerThunk()
   }
 
   render() {
@@ -53,7 +53,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => ({
   ...bindActionCreators({
-    fetchTodosThunk,
+    registerTodosListenerThunk,
     toggleTodoThunk,
   }, dispatch),
 })
